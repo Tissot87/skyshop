@@ -8,6 +8,7 @@ import org.skypro.skyshop.model.search.Searchable;
 import org.skypro.skyshop.service.SearchService;
 import org.skypro.skyshop.service.StorageService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
@@ -34,8 +35,8 @@ public class ShopController {
     }
 
     @GetMapping("/search")
-    public Collection<SearchResult> getSearch(){
-        return searchService.searchResult("");
+    public Collection<SearchResult> getSearch(@RequestParam String pattern){
+        return searchService.searchResult(pattern);
     }
 
 }

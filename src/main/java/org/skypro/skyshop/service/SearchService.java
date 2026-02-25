@@ -29,6 +29,6 @@ public class SearchService {
                         .toLowerCase()
                         .contains(findingTerm.toLowerCase()))
                 .map(SearchResult::fromSearchable)
-                .collect(Collectors.toCollection(TreeSet::new));
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 }
