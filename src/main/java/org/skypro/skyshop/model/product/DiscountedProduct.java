@@ -3,9 +3,9 @@ package org.skypro.skyshop.model.product;
 import java.util.UUID;
 
 public class DiscountedProduct extends Product{
-    int baseCost;
+    public int baseCost;
 
-    int discount;
+    public int discount;
 
     @Override
     public String getName() {
@@ -13,7 +13,7 @@ public class DiscountedProduct extends Product{
     }
 
     public DiscountedProduct(UUID id, String name, int baseCost, int discount) throws IllegalArgumentException {
-        super(name);
+        super(id, name);
         if ((this.baseCost = baseCost) < 1){
             throw new IllegalArgumentException();
         }

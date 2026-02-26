@@ -8,9 +8,11 @@ import java.util.UUID;
 
 public abstract class Product implements Searchable {
 
+    private final UUID id;
     private final String name;
 
-    public Product(String name) throws IllegalArgumentException{
+    public Product(UUID id, String name) throws IllegalArgumentException{
+        this.id = id;
 
         this.name = name;
         if (name == null || name.isBlank()){
@@ -28,7 +30,8 @@ public abstract class Product implements Searchable {
 
 
     @Override
-    public String searchTerm() {
+    @JsonIgnore
+    public String getSearchTerm() {
         return name;
     }
 
@@ -38,11 +41,13 @@ public abstract class Product implements Searchable {
     }
 
     @Override
+    @JsonIgnore
     public String getContentType() {
         return "";
     }
 
     @Override
+    @JsonIgnore
     public String contentType() {
         return "PRODUCT";
     }

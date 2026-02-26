@@ -1,13 +1,9 @@
 package org.skypro.skyshop.service;
 
 import org.skypro.skyshop.model.search.SearchResult;
-import org.skypro.skyshop.model.search.Searchable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,12 +16,12 @@ public class SearchService {
     }
 
 
-    public Collection<SearchResult> searchResult(String findingTerm){
+    public ArrayList<SearchResult> searchResult(String findingTerm){
 
         return storageService
                 .searchableCollection()
                 .stream()
-                .filter(item -> item.searchTerm()
+                .filter(item -> item.getSearchTerm()
                         .toLowerCase()
                         .contains(findingTerm.toLowerCase()))
                 .map(SearchResult::fromSearchable)

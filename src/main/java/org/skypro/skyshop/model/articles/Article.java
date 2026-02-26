@@ -37,12 +37,14 @@ public class Article implements Searchable {
     }
 
     @Override
+    @JsonIgnore
     public String getContentType() {
         return contentType().toString();
     }
 
     @Override
-    public String searchTerm() {
+    @JsonIgnore
+    public String getSearchTerm() {
         return this.toString();
     }
 

@@ -10,12 +10,12 @@ public interface Searchable extends Comparable {
 
     String getContentType();
 
-    String searchTerm();
+    String getSearchTerm();
 
     String contentType();
 
     default String getStringRepresentation(){
-        return this.searchTerm() + " - " + this.contentType();
+        return this.getSearchTerm() + " - " + this.contentType();
     }
 
 }
