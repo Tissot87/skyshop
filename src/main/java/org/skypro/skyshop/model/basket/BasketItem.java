@@ -8,6 +8,8 @@ public class BasketItem {
 
     private final int count;
 
+
+
     public BasketItem(Product product, int count) {
         this.product = product;
         this.count = count;
