@@ -38,6 +38,10 @@ public class StorageService {
 
     }
 
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(mapOfProducts.get(id));
+    }
+
 }
 
 

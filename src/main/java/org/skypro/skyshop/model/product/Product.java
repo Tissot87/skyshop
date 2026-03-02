@@ -37,7 +37,7 @@ public abstract class Product implements Searchable {
 
     @Override
     public UUID getId() {
-        return null;
+        return id;
     }
 
     @Override
