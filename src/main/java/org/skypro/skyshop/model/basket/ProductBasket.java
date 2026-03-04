@@ -14,7 +14,7 @@ import java.util.UUID;
 @Component
 public class ProductBasket {
 
-    private Map<UUID, Integer> mapOfProducts = new HashMap<>();
+    private final Map<UUID, Integer> mapOfProducts;
     public ProductBasket(Map<UUID, Integer> mapOfProducts) {
         this.mapOfProducts = mapOfProducts;
     }
@@ -23,7 +23,7 @@ public class ProductBasket {
 
 
         mapOfProducts.computeIfAbsent(id, k -> {int i = 1;
-            return i;
+            return i++;
         });
     }
 

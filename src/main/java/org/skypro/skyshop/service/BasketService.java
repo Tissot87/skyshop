@@ -28,7 +28,7 @@ public class BasketService {
 
         Optional<Product> o = storageService.getProductById(id);
 
-        if (o.isPresent()){
+        if (!o.isPresent()){
             throw new IllegalArgumentException();
         } else productBasket.addProduct(id);
 
