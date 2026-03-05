@@ -28,7 +28,7 @@ public class BasketService {
 
         Optional<Product> o = storageService.getProductById(id);
 
-        if (o.isPresent()){
+        if (!o.isPresent()){
             throw new IllegalArgumentException();
         } else productBasket.addProduct(id);
 
@@ -44,6 +44,6 @@ public class BasketService {
                                         new IllegalArgumentException("Продукт по ID не найден: " + m.getKey())), m.getValue()))
                 .collect(Collectors.toCollection(ArrayList::new));
 
-        return new UserBasket(basketItemList);
+        return new UserBasket(basketItemList, getUserBasket().getTotal());
     }
 }

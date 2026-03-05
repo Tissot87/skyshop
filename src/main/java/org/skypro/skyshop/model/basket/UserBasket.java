@@ -13,17 +13,23 @@ public class UserBasket {
 
     private final List<BasketItem> basketItemList;
 
-    public UserBasket(List<BasketItem> basketItemList) {
+    private final int total;
+
+    public UserBasket(List<BasketItem> basketItemList, int total) {
         this.basketItemList = basketItemList;
+
+        int calculateTotalSum = basketItemList.stream()
+                    .mapToInt(m -> m.getProduct().getCost()*m.getCount())
+                    .sum();
+
+        this.total = calculateTotalSum;
     }
 
-    private double total;
+    public List<BasketItem> getBasketItemList() {
+        return basketItemList;
+    }
 
-    public double getTotal(){
-        total = basketItemList.stream()
-                .mapToDouble(m -> m.getProduct().getCost()*m.getCount())
-                .sum();
+    public int getTotal() {
         return total;
     }
-
 }
